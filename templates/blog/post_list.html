@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Список постів</title>
+</head>
+<body>
+    <h1>Список постів</h1>
+    <ul>
+        {% for post in posts %}
+            <li>
+                <a href="{% url 'post_detail' post.pk %}">
+                    <strong>{{ post.title }}</strong>
+                </a><br>
+                Опубліковано: {{ post.published_date|date:"d.m.Y H:i" }}
+            </li>
+        {% empty %}
+            <li>Пости відсутні.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
